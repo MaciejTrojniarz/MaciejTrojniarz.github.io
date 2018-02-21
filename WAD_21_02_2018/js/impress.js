@@ -720,7 +720,6 @@
                         api.goto("overview");
                         break;
                 }
-                
                 event.preventDefault();
             }
         }, false);
@@ -783,6 +782,14 @@
                 }
             }
         }, false);
+
+        window.addEventListener("mousewheel", function ( event ) {
+                if ( event.deltaY > 0 ) {
+                    api.prev();
+                } else {
+                    api.next();
+                }
+        }, false);
         
         // rescale presentation when window is resized
         window.addEventListener("resize", throttle(function () {
@@ -792,6 +799,9 @@
         
     }, false);
         
+    document.addEventListener("scroll", function (event) {
+        result = api.next();
+    }, false)
 })(document, window);
 
 // THAT'S ALL FOLKS!

@@ -784,6 +784,13 @@
             }
         }, false);
         
+        window.addEventListener("mousewheel", function ( event ) {
+            if ( event.deltaY > 0 ) {
+                api.prev();
+            } else {
+                api.next();
+            }
+    }, false);
         // rescale presentation when window is resized
         window.addEventListener("resize", throttle(function () {
             // force going to active step again, to trigger rescaling
